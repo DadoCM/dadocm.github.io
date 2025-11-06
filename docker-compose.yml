@@ -1,0 +1,15 @@
+services:
+  server:
+    image: jekyll/jekyll:4
+    container_name: dadocm
+    ports:
+      - '4000:4000'
+    environment:
+      - TZ=America/New_York
+      - JEKYLL_ENV=production
+    volumes:
+      - '.:/code'
+    working_dir: /code
+    command: >
+      bash -c "bundle install &&
+               jekyll serve --force_polling --config _config.yml"
