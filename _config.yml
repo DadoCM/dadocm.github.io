@@ -57,9 +57,8 @@ plugins:
 title: "DadoCM"
 
 heading_anchors: true
-toc:
-  min_level: 2
-  max_level: 4
+exclude:
+
 
 # for creating new empty arrays
 emptyArray: []
@@ -86,3 +85,6 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
+   - Dockerfile
+   - docker-compose.yml
+   - README.md

@@ -1,6 +1,6 @@
 ---
 layout: home
-nav_exclude: true
+title: DadoCM
 ---
 
 # Delivering Archives and Digital Objects: a Conceptual Model (DadoCM)
