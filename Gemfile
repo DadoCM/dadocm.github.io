@@ -13,6 +13,11 @@ gem "jekyll", "~> 4.0.0"
 #gem "jekyll-theme-gitbook"
 gem "just-the-docs"
 gem "webrick"
+# Removed from Ruby default gems in 3.4; required by Jekyll 4.0
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "logger"
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
