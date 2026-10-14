@@ -80,11 +80,30 @@ Yet, since archival components can be aggregates, digital objects can be a manif
 
 This sets a clear distinction between the archival component, which carries descriptive metadata, and the digital object which is concerned with the technical challenges of structuring and delivering digital content. This simplicity also supports usability by allowing an archival component, digital object record, and digital object to be easily collapsed into one view for users.
 
-[Diagram 1](#diagram-1a-purple-diagram-showing-the-relationship-between-the-archival-component-to-digital-object-records-and-showing-their-possible-characterizations.-the-top-box-is-labeled-"archival-component"-with-a-grey-arrow-beneath-it-labeled-"has-a-representative-digital-manifestation"-which-connects-the-archival-component-to-box-"digital-object-record-\(type,-action,-conditions-governing-access\).-beneath-the-"digital-object-record"-box-is-a-dashed-line-with-text-"description\(s\)-handled-by-aspace-for-example\)-on-the-left-side-and-"archival-description"-on-the-right-side.-beneath-the-dashed-lined-on-the-left-side-is-the-text-"access-copies/files-handled-by-repo/file-management-system"-and-"digital-object"-on-the-right-side.-in-the-center,-beneath-the-dashed-line,-is-a-three-pronged-arrow-pointing-at-three-separate-circles.-the-circle-on-the-far-left-reads-"link-out-to-content-webpage-\(with-or-without-embedded-viewer\)",-the-circle-in-the-middle-reads-"individual-file-\(e.g.-on-a-server\)",-and-the-circle-on-the-far-right-reads-"iiif-manifest") shows a single connection between an archival component and its digital object record. The digital object record can describe and facilitate access to its digital object which can be structured using a number of different systems or technology
+#### Diagram 0
+
+<figure id="diagram-0" aria-labelledby="diagram-0-caption">
+  <img id="diagram-0-pcdm" src="img/pcdm_diagram.png"
+       alt="PCDM diagram showing a Collection which has_many Objects, which has_many File. The collection and object carry access and descriptive metadata while the file carries access and technical metadata, as well as the bitstream.">
+
+  <img id="diagram-0-dadocm" src="img/dadoCM1.drawio.png"
+       alt="DadoCM diagram in the same structure showing an Archival Component which has_many Archival Components, which is_represented_by a Digital Object. The collection and object carry access and descriptive metadata while the file carries access and technical metadata, as well as the bitstream.">
+
+  <figcaption id="diagram-0-caption">
+    <strong>Diagram 0.</strong> A comparison of the high-level structure of DadoCM with the Portland Common Data Model (PCDM)
+  </figcaption>
+</figure>
 
 #### Diagram 1
 
-![A purple diagram showing the relationship between the Archival Component to Digital Object Records and showing their possible characterizations. The top box is labeled "Archival Component" with a grey arrow beneath it labeled "Has a representative digital manifestation" which connects the archival component to box "Digital Object Record (type, action, conditions governing access). Beneath the "Digital Object Record" box is a dashed line with text "Description(s) handled by ASpace for example) on the left side and "Archival Description" on the right side. Beneath the dashed lined on the left side is the text "Access copies/files handled by repo/file management system" and "Digital Object" on the right side. In the center, beneath the dashed line, is a three-pronged arrow pointing at three separate circles. The circle on the far left reads "Link out to content webpage (with or without embedded viewer)", the circle in the middle reads "Individual file (e.g. on a server)", and the circle on the far right reads "IIIF manifest"](img/diagram1.png)
+<figure id="diagram-1" aria-labelledby="diagram-1-caption">
+  <img src="img/diagram1.png"
+       alt="Purple diagram showing the relationship between an archival component and a digital object record. The archival component has a representative digital manifestation that connects to a digital object record (type, action, conditions governing access). Beneath that are digital objects that may be link-out webpages, individual files, or IIIF manifests.">
+
+  <figcaption id="diagram-1-caption">
+    <strong>Diagram 1.</strong> A single connection between an archival component and its digital object record. The digital object record can describe and facilitate access to its digital object, which may be structured using different systems or technologies.
+  </figcaption>
+</figure>
 
 ### Maintaining Connections
 
@@ -399,6 +418,14 @@ Archivists have long struggled to manage digital materials using consensus best 
 DadoCM transforms digital archival practice by enabling aggregate and iterative description for digital materials at scale. It normalizes the management of digital materials, making them less exceptional—no longer requiring bespoke workflows or extraordinary resources. Instead, archivists can apply the same extensible and iterative processing methods they have long used for physical collections, ensuring that large volumes of digital materials are rapidly made accessible while allowing for more detailed description where it adds value to users.
 
 Beyond description, DadoCM fosters systems interoperability, making a single unified access system for both physical and digital materials feasible. It paves the way for implementing sustainable on-demand or user-driven digitization, dissolving the rigid digital divide that has long separated repositories’ online and reading room experiences. As systems build on DadoCM, archival repositories will not only become more open to remote users but also more adaptable to new types of collections and uses—expanding their role in ways that improve their visibility and shape their support and resourcing.
+
+## **Changelog**
+
+### DadoCM 1.0
+	Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJLL7V5b_PYawaGUS8BO3Vawo6AISj6zoMqg/edit)
+
+	* Added 
+	* Diagrams now presented better with `<figure>` and `<figcaption>`
 
 ## **Appendix: Examples**
 
