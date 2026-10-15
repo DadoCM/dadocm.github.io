@@ -1736,4 +1736,12 @@ img.logo_img { height: 60px; }
 
 #diagram-0-dadocm { width: 100%; padding: 4rem; margin-left: 3rem; }
 
+#diagram-0-graph { max-width: unset; }
+
+#diagram-0-access_management .d-flex img { height: 400px; width: auto; object-fit: contain; }
+
+.flex-column { flex-direction: column; }
+
+@media (min-width: 992px) { .flex-lg-row { flex-direction: row; } }
+
 /*# sourceMappingURL=just-the-docs-light.css.map */

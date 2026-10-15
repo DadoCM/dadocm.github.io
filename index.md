@@ -65,8 +65,7 @@ Once archivists have stronger pathways for delivering digital objects through ar
   <div class="d-flex flex-column flex-lg-row justify-content-center">
     <img id="diagram-0-access_management1" src="img/access_vs_management1.png"
          alt="" class="img-fluid p-4">
-
-    <img id="diagram-0-access_management2" src="img/access_vs_management2.png"
+  <img id="diagram-0-access_management2" src="img/access_vs_management2.png"
          alt="" class="img-fluid p-4">
   </div>
   <figcaption id="diagram-0-caption">
