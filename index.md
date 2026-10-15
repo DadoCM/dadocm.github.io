@@ -59,6 +59,20 @@ For example, a repository might use a single digital object record to represent 
 
 Once archivists have stronger pathways for delivering digital objects through archival description, practices for digital content management and preservation may evolve in ways that align with this conceptual model. Preservation and management workflows, however, remain local implementation concerns outside the scope of DadoCM.
 
+#### Diagram 0
+
+<figure id="diagram-0-access_management" aria-labelledby="diagram-0-caption">
+  <div class="d-flex flex-column flex-lg-row justify-content-center">
+    <img id="diagram-0-access_management1" src="img/access_vs_management1.png"
+         alt="" class="img-fluid p-4">
+
+    <img id="diagram-0-access_management2" src="img/access_vs_management2.png"
+         alt="" class="img-fluid p-4">
+  </div>
+  <figcaption id="diagram-0-caption">
+    <strong>Diagram 1.</strong> Different options for management and preservation of digital objects alongside DadoCM
+  </figcaption>
+</figure>
 
 ## **Section 2\. Definitions**
 
@@ -66,13 +80,13 @@ Once archivists have stronger pathways for delivering digital objects through ar
 
 **Archival Component:** a node within a graph of archival description that describes an aggregate of materials, such as a collection, fonds, record group, series, subseries, or file. Examples include an archival object or resource record in ArchivesSpace or a **`<c>`**, **`<c01>`**, **`<c02>`**, etc. element in Encoded Archival Description (EAD).
 
-**Digital Object:** A manifestation or instance of an archival component that should include any structural metadata necessary to consume the object. Since an archival component is an aggregate, this could be anything from a single JPG file or a complex multi-level file system, or just a grouping of materials in different formats. Archival methods expect descriptive metadata and information on context and provenance to be primarily managed outside of a digital object, yet digital objects may contain descriptive metadata for legacy and technical reasons.
+**Digital Object:** A manifestation or instance of an archival component that should include any structural metadata necessary to consume the object. Since an archival component is an aggregate, this could be anything from a single JPG file or a complex multi-level file system, or just a grouping of materials in different formats. Archival methods expect descriptive metadata and information on context and provenance to be primarily managed outside of a digital object, yet digital objects may contain descriptive metadata for legacy and technical reasons. Within DadoCM, a digital object is a conceptual entity rather than a specific implementation.
 
-**Digital Object Record:** A metadata record that connects an archival component to its digital object so that the digital object may be delivered to the user. Examples include a digital object record in ArchivesSpace or a \<dao\> element in EAD.
+**Digital Object Record:** A metadata record that connects an archival component to its digital object so that the digital object may be delivered to the user. In most implementations, a digital object record exists as a separate record linked to an archival component. However, because a digital object is a manifestation of an archival component, simpler implementations could instead store equivalent information directly within the archival component itself. For example, ArchivesSpace implements digital object records as separate digital_object records linked to archival components, while EAD 2002 may represent similar information through a single **`<dao>`** element which could be collapsed into a **`<c>`** component as attributes in a very basic implementation. DadoCM defines the information required to maintain this relationship without prescribing how it must be implemented or how one should use digital object records.
 
 ## **Section 3\. Core Principles**
 
-### Archival description is structured as a graph of related components
+### 1. Archival description is structured as a graph of related components
 
 Archival description has traditionally been presented in a hierarchical tree structure of related parent, sibling, and child elements, like collections, series, files, and items. A graph structure keeps this hierarchy but adds another dimension, where additional access points, such as creator agents or common forms are also connected. Users can not only navigate between components like from a series to a file, but from a component to a creator agent to another component, potentially within another collection or housed at another repository. This structure draws on linked data approaches and prior work such as the [Records in Contexts Conceptual Model (RiC-CM)](https://www.ica.org/ica-network/expert-groups/egad/records-in-contexts-conceptual-model/), but DadoCM does not require or necessarily expect implementations to support linked data, and linked data is not the only method of implementing these relationships.
 
@@ -80,21 +94,21 @@ Archival description has traditionally been presented in a hierarchical tree str
 
 <figure id="diagram-0" aria-labelledby="diagram-0-caption">
   <img id="diagram-0-graph" src="img/graph_structure.png"
-       alt="">
+       alt="Diagram showing archival hierarchy of Collection, Series, and Files. The Collection is also linked with a Creator which is also linked to another Collection, and a File (excel spreadsheet) is linked to a Function (Bookeeping) which is linked to another File (ledger) in a different Collection. This shows each collection hierarchy is interconnected into a graph.">
 
   <figcaption id="diagram-0-caption">
     <strong>Diagram 1.</strong> A example of the graph structure of archival description
   </figcaption>
 </figure>
 
-### Disambiguating and Deduplicating Archival Components and Digital Object Records
+### 2. Disambiguating and Deduplicating Archival Components and Digital Objects
 
 With the advent of technologies like IIIF, it is possible for the archival description in finding aids to be connected to digital assets *without* duplication of information and labor across systems. For many practitioners, this is a paradigm shift. We encourage archivists and the stewards of archival access system to take seriously two core ideas:
 
 1. Archival materials exist as nodes within a network \-- items, files, series, record groups, and other groupings within an archival collection. Core archival theory principles are unambiguous \-- archivists must explain and make explicit the relationships between the parts and the whole of an archival collection. **The meaning of an individual record becomes impoverished when it is removed from its context.**  
-2. System design principles encourage [orthogonality](https://en.wikipedia.org/wiki/Orthogonality_\(programming\)), which calls for related data to be updated and maintained independently. We must ensure that the same information is not duplicated within or across systems. **Information may be displayed in multiple places, but it must only be created and updated in one, canonical system of record.**
+2. System design principles encourage [orthogonality](https://en.wikipedia.org/wiki/Orthogonality_\(programming\)), which calls for related data to be updated and maintained independently. We must ensure that information has a clearly defined, authoritative source and avoid maintaining the same information in multiple places. **Information may be displayed in multiple places, but it must only be created and updated in one, canonical system of record.**
 
-### Digital Objects are Manifestations of Archival Components
+### 3. Digital Objects are Manifestations of Archival Components
 
 A Digital Object shall fully represent an Archival Component in a one-to-one relationship. The archival component is the unit of description, while the digital object is the manifestation of that description in digital form. Consequently, digital objects should not be created to describe or represent only a portion of an archival component. If part of an archival component requires separate description or intellectual identification, archivists should create a sub archival component (such as an item within a file) and associate a digital object with that component. This ensures that descriptive metadata remains within the archival hierarchy and that digital objects continue to function as manifestations of archival components rather than becoming parallel descriptive records.
 
@@ -118,19 +132,28 @@ Using the [Portland Common Data Model (PCDM)](https://pcdm.org/) for comparison.
   </figcaption>
 </figure>
 
-### Maintaining Connections
+### 4. Maintain Persistent Links Between Digital Objects and Archival Description
 
 While digital objects are often managed and maintained separately from archival description, they still must be made available to users within their archival context. To achieve this, archivists need to maintain persistent connections between digital objects and the archival components that describe them.
 
-A digital object must maintain a connection with its canonical archival description through the inclusion of the archival component’s unique identifier \[see [Diagram 2](#diagram-2)\]. This could be a URI, a primary key in a database, a Universally Unique Identifier (UUID), an accession number, a catalog number, or similar. This inclusion provides contextual information to the digital object, especially in environments where a digital object is separated from its archival description. The digital object should not exist on its own – there should always be a connection back to the archival component.
+Digital objects should not exist independently of their archival context. **Every digital object must maintain a persistent connection to the archival component that describes it.** We can do this through the inclusion of the archival component’s unique identifier \[see [Diagram 2](#diagram-2)\]. This could be a URI, a primary key in a database, a Universally Unique Identifier (UUID), an accession number, a catalog number, or similar. This inclusion provides contextual information to the digital object, especially in environments where a digital object is separated from its archival description. The digital object should not exist on its own – there should always be a connection back to the archival component.
 
-ArchivesSpace handles this connection for us if we use digital object records, but they must be connected to an archival component. ArchivesSpace then exposes this relationship through its Public User Interface (PUI), its REST API, or through \<dao\> tags in EAD exports.
+ArchivesSpace implements this automatically for us if we ensure our digital objects are connected to an archival component. ArchivesSpace then exposes this relationship through its Public User Interface (PUI), its REST API, or through \<dao\> tags in EAD exports.
 
 #### Diagram 2 {#diagram-2}
 
-![Diagram showing two tables that are linked  via the term "Unique ID" which is linked by a line named "Primary Key". The first table is titled "Archival Component" with terms "Title, Date, Collection, Creator, Conditions Governing Access, Scope & Contents, and Unique ID" listed. The second table is title "Digital Object Record" and has terms "Unique ID, URI (location), Action, and Type" listed. There is also a note reading "\*Other fields, such as access conditions, thumbnails, or additional metadata, can be used depending on local system requirements."](img/diagram2.png)
+<figure id="diagram-2" aria-labelledby="diagram-2-caption">
+  <img
+    src="img/diagram2.png"
+    alt="Diagram showing two tables that are linked via the term &quot;Unique ID&quot; which is linked by a line named &quot;Primary Key&quot;. The first table is titled &quot;Archival Component&quot; with terms &quot;Title, Date, Collection, Creator, Conditions Governing Access, Scope & Contents, and Unique ID&quot; listed. The second table is title &quot;Digital Object Record&quot; and has terms &quot;Unique ID, URI (location), Action, and Type&quot; listed. There is also a note reading &quot;*Other fields, such as access conditions, thumbnails, or additional metadata, can be used depending on local system requirements.&quot;"
+    class="img-fluid">
 
-### Describe and provide access to aggregations of digital materials at the point where they are self-describing
+  <figcaption id="diagram-2-caption">
+    <strong>Diagram 2.</strong> A system-agnostic diagram showing an archival component linked to a digital object record through a shared unique identifier.
+  </figcaption>
+</figure>
+
+### 5. Describe and provide access to aggregations of digital materials at the point where they are self-describing
 
 Digital objects are often aggregations of digital materials. Aggregation is fundamental to archival description, enabling archivists to efficiently manage vast volumes of material without unnecessary effort. For instance, we may describe a file of correspondence between two organizations that has specific access restrictions without itemizing each memorandum and restating those restrictions. In the context of digital materials, a group of records may have sufficient organization that does not merit further description. Similarly, from the standpoint of complex digital objects, they are likely best understood as aggregations themselves. Examples include:
 
@@ -143,7 +166,7 @@ Archivists should use their professional judgement to determine when it is appro
 
 DadoCM is intended to support these choices and enable archivists to leverage aggregation. As such, it does not provide a mechanism for modeling complex digital objects on its own. Many standards exist for this, covering various use cases, with the International Image Interoperability Framework (IIIF) being a widely adopted and effective method for managing aggregates of digital material along with metadata and exposing them for interoperable use. Metadata Encoding and Transmission Standard (METS) is another method and many repositories have long used PDF files to aggregate digital objects in a single file.
 
-### IIIF Manifests as Digital Objects
+### 6. IIIF Manifests as Digital Objects
 
 While DadoCM is system-agnostic, it strongly recommends using IIIF manifests to structure and provide access to digital objects whenever feasible. IIIF manifests are a proven way to deliver structured aggregations of digital materials in the form of digital objects. They contain content, metadata, alternative representations, and the internal relationships that allow us to navigate and make use of complex digital objects. While most repositories struggle to implement and maintain additional technology, since IIIF has been widely adopted, [check to see if your existing systems support IIIF](https://iiif.io/get-started/vendors/).
 
@@ -157,7 +180,15 @@ While IIIF does not address every possible digital object use case, DadoCM is pr
 
 #### Diagram 3
 
-![Diagram containing three boxes connecting by a grey line. The first box is titled "Archival Component" and has two terms beneath it "archival\_object\_relator (Primary Key)" and "descriptive metadata". The grey line that connects the first box to the second is labeled "One-to-one relationship". The second box is titled "Digital Object Record" and has five terms beneath it labeled "archival\_object\_relator (Primary Key), identifier (URI), action ("embed"), type (specifies its a IIIF manifest), access\_conditions". The second box is connected to the third box with a grey line labeled "(using identifier). The third box is titled "IIIF Manifest as Digital Object" and contains eight bulleted statements beneath it. The statements are "Complex object structure and navigation behavior; Thumbnails or representative content samples; Deep zooming for large/high resolution images; Digital object descriptive metadata; Rights statement; Representative text or captions for accessibility or indexing; Alternative renderings, or representation in different formats; Multi-level navigation for file system"](img/diagram 3.png)
+<figure>
+  <img
+    src="img/diagram3.png"
+    alt="Diagram containing three boxes connected by a grey line. The first box is titled &quot;Archival Component&quot; and has two terms beneath it: &quot;archival_object_relator (Primary Key)&quot; and &quot;descriptive metadata&quot;. The grey line connecting the first box to the second is labeled &quot;One-to-one relationship&quot;. The second box is titled &quot;Digital Object Record&quot; and has five terms beneath it: &quot;archival_object_relator (Primary Key)&quot;, &quot;identifier (URI)&quot;, &quot;action (&quot;embed&quot;)&quot;, &quot;type (specifies it is a IIIF manifest)&quot;, and &quot;access_conditions&quot;. The second box is connected to the third box with a grey line labeled &quot;content samples; Deep zooming for large or high-resolution images; Digital object descriptive metadata; Rights statement; Representative text or captions for accessibility or indexing; Alternative renderings or representations in different formats; Multi-level navigation for file systems."
+  >
+  <figcaption>
+    <strong>Diagram 3.</strong> Example of a digital object record linking an archival component to a IIIF manifest.
+  </figcaption>
+</figure>
 
 ## **Section 4\. Perspective and Prospective**
 
@@ -251,18 +282,24 @@ Indicates the desired rendering action for the digital object. Recommended pract
 
 #### Type (required)
 
-Identification of the general type of data represented by the linked digital object. This informs what tool or method should be used for “embed” or other type specific rendering actions.
+Identification of the general type of resource represented by the linked digital object. This value is primarily intended to support access and delivery by indicating what viewer, renderer, or access mechanism should be used. It is not necessarily intended to describe all files or formats represented by the archival component. For example, a single archival component may contain many file formats, yet be delivered through a single IIIF manifest or collection resource. Type typically informs what tool or method should be used for “embed” or other type specific rendering actions.
 
-The use of a controlled vocabulary such as the [DCMI Type Vocabulary](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-7) or standard MIME types is strongly recommended for this element. DCMI Types offer a simpler range of types for access systems to implement while MIME types offer more precision.
+For complex digital objects, the Type value may describe the delivery resource rather than the underlying files. For example, a directory containing images, video, and text documents may be represented and delivered through a IIIF Collection, IIIF Manifest, or ZIP file, in which case the Type would identify the IIIF resource or ZIP rather than each individual file format.
+
+The use of a controlled vocabulary such as the [DCMI Type Vocabulary](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-7) or standard MIME types is strongly recommended for this element. DCMI Types offer a simpler range of types for access systems to implement while MIME types offer more precision. Implementations may also use locally defined controlled values when necessary to support specific delivery mechanisms.
 
 For IIIF manifests, it is recommended to use the [DCMI Type Collection](http://purl.org/dc/dcmitype/Collection) or if using MIME types, to specify them as JSON-LD documents and to use additional profiling to include the specific IIIF context URL. For example, the MIME type for a IIIF v3 Presentation API manifest would be:  
-application/ld+json; profile="http://iiif.io/api/presentation/3/context.json".
+`application/ld+json; profile="http://iiif.io/api/presentation/3/context.json"`.
 
 #### Conditions Governing Access (required)
 
 Information about any restrictions or conditions to accessing the digital object. Use of a controlled vocabulary or URI is required.
 
 Archival description rules such as in [DACS](https://saa-ts-dacs.github.io/) and [ISAD(G)](https://www.ica.org/resource/isadg-general-international-standard-archival-description-second-edition/) provide guidance to help us explain to users whether \-- and how \-- they can access archival materials. These rules apply equally to physical materials on the stacks and digital objects in our systems. It is always important to explain to users at the most relevant level of aggregation what is available to them and what barriers they may encounter to access.
+
+Access conditions may be defined at any level of archival description and inherited by subordinate archival components. **DadoCM does not require access conditions to be repeated for every digital object. However, the effective access conditions that apply to a digital object must be available in a machine-actionable form so that access systems can communicate, filter, and enforce those conditions.**
+
+Ideally, machine-actionable access information would be managed alongside archival description and inherit through the archival hierarchy in the same manner as human-readable Conditions Governing Access notes. However, because access conditions have traditionally been recorded only as narrative text, implementations may need to store, derive, or duplicate equivalent access information for digital object delivery. DadoCM does not prescribe where this information is stored. Rather, it requires that the access conditions applicable to a digital object be available in a machine-actionable form when the digital object is delivered to users.
 
 In this conceptual model, Conditions Governing Access notes and machine-actionable access rules are semantically equivalent. Information about access conditions must be tied to the digital object in a machine-actionable way so that systems have the information they need to actualize the terms of these conditions. This machine-actionable information about access should be provided via a URI or controlled vocabulary. 
 
@@ -273,26 +310,6 @@ In all cases, the information we give to humans in conditions governing access n
 #### Representative sample (optional)
 
 A stand-in or representative content for the digital object for usability or for digital objects with limited access. This could be a thumbnail URL or an audio or video clip. Must be a retrievable URI.
-
-### Legacy Concerns
-
-DadoCM represents a significant shift in practice and strict adherence may be aspirational for many repositories in the short term. Most repositories have decades of existing systems, metadata, workflows, and digitized content that cannot realistically be restructured all at once. Archivists should work toward greater alignment with DadoCM over time as systems are maintained and migrated over time. Implementations may often include a mixture of legacy and DadoCM-aligned practices while continuing to provide access to existing digital content.
-
-#### Coverage
-
-This model provides a new, much less resource-intensive way of providing access to digital materials using archival description. Moving forward, archivists should follow archival descriptive principles that tell us very clearly that our archival descriptions must fully describe the scope of the aggregation made available to the researcher. The corollary to this is that when part of a finding aid describes a body of records (an item, file, group of recordings, reel of film), the finding aid should then point to the *totality* of the materials described. In other words, there should be a one-to-one relationship between the archival description and the items represented in a digital object.
-
-This may be a departure from current practices in many repositories. In a situation where a researcher requests a handful of photographs from an entire envelope of photographs (described in a single archival component as “Mardi Gras 1988,” having a total of 36 snapshots in the envelope, for instance), it may have been the practice to only scan the four photos requested, and then email them to the researcher or describe them individually in a digital library system. In this new model, we encourage archivists to go ahead and digitize all 36 images for sustainable long-term access \-- and to store them all together, associated with the existing description of “Mardi Gras 1988,” and linked from the finding aid. While the archivist is always empowered to extend the finding aid to add lower, item-level descriptions of each photograph to avoid digitizing all images if the situation warrants it, typically no additional description is necessary since the images in this example were successfully found and requested. In cases where digitizing the entire archival component is not feasible, the archivist can still digitize portions of the component to enable immediate use without making these scans available for future use.
-
-While this practice risks increasing data volumes and exacerbating emissions that contribute to climate change, increases should be marginal and the additional data is necessary to ensure it is manageable to maintain digitized materials for ongoing use. Archivists should also make informed judgements that weigh the advantages of access, the value of the material, and the total costs of ongoing maintenance when choosing to digitize an entire component for long term use or just a portion for short-term access.
-
-It is important to be able to serve researchers the enormous body of materials that have already been digitized and described, where this model may not have been used. In some cases, our digital library systems may just have a portion of many archival components. For the purposes of accommodating legacy assets, it is possible, in this case, to associate the four digitized photos with the component that describes 36 photos. In this case, it is important to note the description of the archival component that the digital object’s coverage is only part of what is being described, such as not using the ArchivesSpace “Make Representative” feature.
-
-#### Existing Digital Object Level Descriptive Metadata
-
-This section provides recommendations on how to make productive use of legacy digital object metadata in archival systems. While duplication of descriptive metadata at the digital object level is often an unnecessary and time-consuming process, most archival repositories have existing item-level metadata attached to digital objects. Typically these adhere to Dublin Core (DC), Metadata Object Description Schema (MODS) or similar standards. Access systems should be able to handle and make use of this legacy description.
-
-Since DadoCM is extensible, implementers are able to include an additional field representing an ordered set of labeled values, such as a dictionary or JSON data structure. This approach is similar to the [IIIF Presentation API's metadata property](https://iiif.io/api/presentation/3.0/#31-descriptive-properties), which represents descriptive information as an ordered list of label/value pairs. Implementations can then nest additional DC or MODS namespaces containing legacy metadata, or just simply prefix fields with a string such as “dado\_” to avoid potential conflicts with DACS or ISAD(G) fields such as title. These fields can then be carried along with a digital object to an access system, which can still make use of this legacy description for discovery. For conflicts with or duplication of archival description in specific fields (such as a date field in both the archival object and legacy digital object metadata), the archival description should be prioritized over digital object descriptive metadata.
 
 ### Table of fields with examples
 
@@ -306,7 +323,32 @@ Since DadoCM is extensible, implementers are able to include an additional field
 | **Conditions Governing Access** | Required | https://vocab.example.org/access/open https://vocab.example.org/access/login https://vocab.example.org/access/closed http://iiif.io/api/auth/1/login |
 | **Representative Sample** | *Optional* | https://my.server.org/do/pk02cv45j/thumbnail.jpg |
 
-## **Section 6: Implementation Guidance for Archivists**
+## **Section 6: Legacy Concerns**
+
+DadoCM represents a significant shift in practice and strict adherence may be aspirational for many repositories in the short term. Most repositories have decades of existing systems, metadata, workflows, and digitized content that cannot realistically be restructured all at once. Archivists should work toward greater alignment with DadoCM as they maintain systems and metadata over time. Existing metadata should be updated when doing so provides clear benefits to users, and implementations may include a mixture of legacy and DadoCM-aligned practices while continuing to provide access to existing digital content.
+
+Yet, archivists should prioritize immediate choices that allow for long-term alignment, like including archival component identifiers in digital object records so these connections will not be lost. and archvists should handling digital material moving forward in alignment with DadoCM. Archivists should follow archival descriptive principles that tell us very clearly that our archival descriptions must fully describe the scope of the aggregation made available to the researcher. The corollary to this is that when part of a finding aid describes a body of records (an item, file, group of recordings, reel of film), the finding aid should then point to the *totality* of the materials described. In other words, there should be a one-to-one relationship between the archival description and the items represented in a digital object.
+
+This model provides a new, much less resource-intensive way of providing access to digital materials using archival description. By reusing archival description as the primary source of descriptive metadata and limiting the information required to connect descriptions and digital objects, DadoCM reduces metadata duplication, simplifies workflows, and lowers long-term maintenance costs. The simplicity and standardization promoted by DadoCM should also enable more cost-effective development of repository and access tools. By establishing a common pattern for connecting archival descriptions and digital objects, institutions can share implementations, reduce customization, and focus resources on improving access and functionality rather than repeatedly solving the same integration problems.
+
+### Coverage: The Part of A Component Problem
+
+This may be a departure from current practices in many repositories. In a situation where a researcher requests a handful of photographs to be digitized from an entire envelope of photographs (described in a single archival component as “Mardi Gras 1988,” having a total of 36 snapshots in the envelope, for instance), it may have been the practice to only scan the four photos requested, and then email them to the researcher or describe them individually in a digital library system. In this new model, we encourage archivists to go ahead and digitize all 36 images for sustainable long-term access \-- and to store them all together, associated with the existing description of “Mardi Gras 1988,” and linked from the finding aid. While the archivist is always empowered to extend the finding aid to add lower, item-level descriptions of each photograph to avoid digitizing all images if the situation warrants it, typically no additional description is necessary since the images in this example were successfully found and requested. In cases where digitizing the entire archival component is not feasible, the archivist can still digitize portions of the component to enable immediate use without making these scans available for future use.
+
+While this practice risks increasing data volumes and exacerbating emissions that contribute to climate change, increases should be marginal and the additional data is necessary to ensure it is manageable to maintain digitized materials for ongoing use. Archivists should also make informed judgements that weigh the advantages of access, the value of the material, and the total costs of ongoing maintenance when choosing to digitize an entire component for long term use or just a portion for short-term access.
+
+It is important to be able to serve researchers the enormous body of materials that have already been digitized and described, where this model may not have been used. In some cases, our digital library systems may just have a portion of many archival components. For the purposes of accommodating legacy assets, it is possible, in this case, to associate the four digitized photos with the component that describes 36 photos. In this case, it is important to note the description of the archival component that the digital object’s coverage is only part of what is being described, such as not using the ArchivesSpace “Make Representative” feature.
+
+### Handling Multiple Digital Objects Per Component
+
+
+### Existing Digital Object Level Descriptive Metadata
+
+This section provides recommendations on how to make productive use of legacy digital object metadata in archival systems. While duplication of descriptive metadata at the digital object level is often an unnecessary and time-consuming process, most archival repositories have existing item-level metadata attached to digital objects. Typically these adhere to Dublin Core (DC), Metadata Object Description Schema (MODS) or similar standards. Access systems should be able to handle and make use of this legacy description.
+
+Since DadoCM is extensible, implementers are able to include an additional field representing an ordered set of labeled values, such as a dictionary or JSON data structure. This approach is similar to the [IIIF Presentation API's metadata property](https://iiif.io/api/presentation/3.0/#31-descriptive-properties), which represents descriptive information as an ordered list of label/value pairs. Implementations can then nest additional DC or MODS namespaces containing legacy metadata, or just simply prefix fields with a string such as “dado\_” to avoid potential conflicts with DACS or ISAD(G) fields such as title. These fields can then be carried along with a digital object to an access system, which can still make use of this legacy description for discovery.
+
+## **Section 7: Implementation Guidance for Archivists**
 
 For many archivists, implementing DadoCM may seem daunting—especially for those without strong technology support or whose repositories rely on systems that don’t seem to immediately align with DadoCM’s approach. Implementing DadoCM is primarily a change in practice rather than systems. Archivists can take small, achievable steps to both better manage digital materials now while ensuring their work remains future-proof and able to further leverage DadoCM as the systems environment evolves.
 
@@ -386,7 +428,7 @@ Digital materials are further processed over time as archivists are able to prov
 
 DadoCM enables access systems to potentially provide even more sophisticated access to aggregations of digital materials This could include navigating the contents of the digital materials using nested IIIF collections without having to download the entire contents. While much of this could be automated, an archivist should be able to group meaningful aggregates for description and/or review materials. Thus, iterative processing could be more than just adding description, but could also include navigation and other improvements that provide more detailed access.
 
-## **Section 7\. Barriers to Implementation**
+## **Section 8\. Barriers to Implementation**
 
 Archivists have many of the tools they currently need to implement DadoCM to better connect digital objects within archival description, but there are a few notable barriers where our existing tools and standards limit this approach.
 
@@ -425,10 +467,17 @@ Archivists have a wide variety of digital materials to deliver. The IIIF Present
 
 Archivists should provide access to aggregations of digital materials at the point they are self-describing. This often leads to complex structures for digital objects. For example, an archivist may want to describe a disk image or logical filesystem directory structure as a single digital object, as it may be a meaningful aggregation for users and the filesystem structure may be sufficiently self-describing. The IIIF Presentation API can support this using nested IIIF collections, but current image viewers only have minimal support for navigating IIIF collections. Multiple different repositories have experimented with this approach, including the [Swiss Social Archives](https://archival-iiif.github.io/), the [UK National Archives](https://tom-crane.medium.com/mapping-archives-to-digitised-objects-c10ae419bea3), and [Columbia University Libraries](https://dlc.library.columbia.edu/ifp/ldpd:504475) \- demonstrating a persistent need. Many repositories have been collecting disk images and logical file systems transfers but find it challenging to provide sustainable access to these materials. If IIIF image viewers could offer more intuitive navigation for nested IIIF collections, it would be a transformative breakthrough for archivists, empowering them to sustainably provide access to large portions of collections that are currently inaccessible.
 
-![Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections.](img/ScreenshotColumbiaUniversityLibrariesMirador.png) 
-*Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections.*
+<figure id="screenshot-columbia-mirador" aria-labelledby="screenshot-columbia-mirador-caption">
+  <img
+    src="img/ScreenshotColumbiaUniversityLibrariesMirador.png"
+    alt="Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections.">
 
-## **Section 8: Conclusion**
+  <figcaption>
+    Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections.
+  </figcaption>
+</figure>
+
+## **Section 9: Conclusion**
 
 Archivists have long struggled to manage digital materials using consensus best practices like aggregate and iterative description. Most digital access systems were not designed with these archival principles in mind, forcing repositories into inefficient, duplicative workflows just to meet basic user needs. Archivists often have no choice but to try to describe digital materials item by item, inevitably only covering a small portion and leaving vast portions of their digital collections under-described and inaccessible—practices that would be unthinkable for physical collections. As the archival record becomes increasingly digital-first, this untenable reality risks not only failing users but also undermining how repositories are resourced and supported Over time, this marginalizes archivists, limiting their ability to provide timely access to digital materials and consigning them to only their traditional work in limited, and often manual, ways.
 
@@ -441,14 +490,28 @@ Beyond description, DadoCM fosters systems interoperability, making a single uni
 ### DadoCM 1.0
 Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJLL7V5b_PYawaGUS8BO3Vawo6AISj6zoMqg/edit)
 
-* Diagrams now presented better with `<figure>` and `<figcaption>`
-* Clarified [Principle 3.3](##digital-objects-are-manifestations-of-archival-components) and added comparisons to the Portland Common Data Model (PCDM)
-* Replaced [Diagram 1](#diagram-1) with a comparison to the Portland Common Data Model (PCDM)
+* Numbered the Core Principles for easier reference
+* Added [Core Principle 1](#1-archival-description-is-structured-as-a-graph-of-related-components) to add what DadoCM means by graph structure
+  * Informed by comments in the prerelease GoogleDoc
+* Clarified [Core Principle 3](#3-digital-objects-are-manifestations-of-archival-components) and added comparisons to the Portland Common Data Model (PCDM)
+  * Replaced [Diagram 1](#diagram-1) with a comparison to the Portland Common Data Model (PCDM)
+  * Informed by community feedback action item 1 "Clarify how ‘digital object specific metadata’ does not contradict the finding aid"
+* Rewrote [Core Principle 4](#4-maintain-persistent-links-between-digital-objects-and-archival-description) to make it more action-oriented and clarify what role ArchivesSpace is fulfilling.
+  * Informed by comments in the prerelease GoogleDoc
+* Added text to the Digital Object and Digital Object Record [Definitions](#section-2-definitions) to clarify how DadoCM handles both concepts.
+  * Informed by comment in the prerelease GoogleDoc
+* Clarified the Type element may describe the delivery method more so than the content.
+  * Informed by community feedback action item 5 "Redefine or clarify “type” term"
+* Added language clarifying the Conditions Governing Access element can be inherited from archival components
+  * Informed by community feedback action item 5 "Redefine or clarify the “conditions governing access” term and explain its inherited nature/individual nature compared to the finding aid"
 * Added a framing paragraph to [Legacy Concerns](#legacy-concerns) to acknowledge that this significant shift in practice and will take time to adapt in most cases.
   * Informed by community feedback action item 1 "Better define how DadoCM affects (or doesn’t affect) legacy environments"
+  * Informed by community feedback action item 7 "Better acknowledge upfront labor of switching to a new system and the increased labor for imaging and ingest"
 * Added clarifying language to [Existing Digital Object Descriptive Metadata](#existing-digital-object-level-descriptive-metadata) to explicity state how archivists can continue to use legacy digital object metadata to support discovery.
   * Informed by community feedback action item 1 "Clarify how DadoCM can still function alongside LCSH or internal subject headings"
-* Added additional clarifying guidance to [Principle 3.5](#describe-and-provide-access-to-aggregations-of-digital-materials-at-the-point-where-they-are-self-describing):
+* Removed guidance on how to handle specific conflicts between archival components and legacy digital object descriptive metadata.
+  * Informed by comment in the prerelease GoogleDoc
+* Added additional clarifying guidance to [Core Principle 5](#5-describe-and-provide-access-to-aggregations-of-digital-materials-at-the-point-where-they-are-self-describing):
   * Informed by community feedback action item 1, "Clarify “sufficient description" is based on an archivist’s professional judgement."
 * Clarified language for handling [Existing Digital Object Metadata](#existing-digital-object-level-descriptive-metadata)
   * Informed by community feedback action item 1, "Clarify how ‘digital object specific metadata’ does not contradict the finding aid."
@@ -456,10 +519,15 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
   * Informed by community feedback action item 2 as off-topic.
 * Added clarifying text in [IIIF Manifests as Digital Objects](#iiif-manifests-as-digital-objects)
   * Informed by community feedback action item 9, "Guidance for “containerizing” series of digital files."
-* Rewrote [Focus on Access over Management and Preservation] section to clarify how DadoCM perceives digital object management and preservation information, and why scoping that out ensures it applies to both born-digital and digitized materials.
-  * Informed by comments in the prerelease GoogleDoc
+* Rewrote [Focus on Access over Management and Preservation](#focus-on-access-over-management-and-preservation) section to clarify how DadoCM perceives digital object management and preservation information, and why scoping that out ensures it applies to both born-digital and digitized materials.
+  * Added [Diagram 1](#diagram-1) showing different options for management and preservation of digital objects alongside DadoCM
+  * Informed by comments in the prerelease GoogleDoc and community feedback action item 6 "Better define how the 1 to 1 principle relates to the distinction between access and preservation copies"
 * Clarified that IIIF is a standard not a technology
   * Informed by comment in the prerelease GoogleDoc
+* Clarified language against orthogonality priciple to say don't maintain duplicate authoritative data sources.
+  * Informed by comment in the prerelease GoogleDoc
+* Diagrams now presented better with `<figure>` and `<figcaption>`
+  * Informed by comments in the prerelease GoogleDoc
 
 ## **Appendix: Examples**
 
