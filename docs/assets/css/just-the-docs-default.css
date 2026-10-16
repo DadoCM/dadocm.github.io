@@ -1740,16 +1740,26 @@ img.logo_img { height: 60px; }
 
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
-#diagram-0-pcdm { width: 100%; }
+#diagram-1 a { background-color: white; }
 
-#diagram-0-dadocm { width: 100%; padding: 4rem; margin-left: 3rem; }
+#diagram-1 .d-flex img { height: 400px; width: auto; object-fit: contain; }
 
-#diagram-0-graph { max-width: unset; }
+#diagram-2-graph { max-width: unset; }
 
-#diagram-0-access_management .d-flex img { height: 400px; width: auto; object-fit: contain; }
+#diagram-2-graph { background-color: white; padding: 2rem; }
+
+#diagram-3-pcdm { width: 100%; }
+
+#diagram-3-dadocm { width: 100%; padding: 4rem; margin-left: 3rem; }
+
+.migration_diagrams img { max-width: none; height: 300px; }
 
 .flex-column { flex-direction: column; }
 
 @media (min-width: 992px) { .flex-lg-row { flex-direction: row; } }
+
+.diagram-expand { display: none; }
+
+@media (max-width: 900px) { .diagram-expand { display: inline; } }
 
 /*# sourceMappingURL=just-the-docs-default.css.map */

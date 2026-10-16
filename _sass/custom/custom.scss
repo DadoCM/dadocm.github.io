@@ -84,24 +84,40 @@ img.logo_img {
   border: 0;
 }
 
-#diagram-0-pcdm {
-  width: 100%;
+#diagram-1 a {
+  background-color: white;
 }
 
-#diagram-0-dadocm {
-  width: 100%;
-  padding: 4rem;
-  margin-left: 3rem;
-}
-
-#diagram-0-graph {
-  max-width: unset;
-}
-
-#diagram-0-access_management .d-flex img {
+#diagram-1 .d-flex img {
     height: 400px;
     width: auto;
     object-fit: contain;
+}
+
+#diagram-2-graph {
+  max-width: unset;
+}
+
+#diagram-2-graph {
+  background-color: white;
+  padding: 2rem;
+}
+
+#diagram-3-pcdm {
+  width: 100%;
+  padding: 4rem;
+  background-color: white;
+}
+
+#diagram-3-dadocm {
+  width: 100%;
+  padding: 4rem;
+  background-color: white;
+}
+
+.migration_diagrams img {
+  max-width: none;
+  height: 300px;
 }
 
 .flex-column {
@@ -111,4 +127,14 @@ img.logo_img {
     .flex-lg-row {
         flex-direction: row;
     }
+}
+
+.diagram-expand {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .diagram-expand {
+    display: inline;
+  }
 }
