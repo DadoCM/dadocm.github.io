@@ -90,3 +90,4 @@ exclude:
    - Dockerfile
    - docker-compose.yml
    - README.md
+   - _portable_site/

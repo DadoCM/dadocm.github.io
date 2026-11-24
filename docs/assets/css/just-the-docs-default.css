@@ -851,11 +851,11 @@ tbody tr:last-of-type td { padding-bottom: 0.75rem; }
 
 thead th { border-bottom: 1px solid #D6BA8C; }
 
-:not(pre, figure) > code { padding: 0.2em 0.15em; font-weight: 400; background-color: #fff; border: 1px solid #D6BA8C; border-radius: 4px; }
+:not(pre, figure) > code { padding: 0.2em 0.15em; font-weight: 400; background-color: #f5f6fa; border: 1px solid #D6BA8C; border-radius: 4px; }
 
 a:visited code { border-color: #D6BA8C; }
 
-div.highlighter-rouge, div.listingblock > div.content, figure.highlight { margin-top: 0; margin-bottom: 0.75rem; background-color: #fff; border-radius: 4px; box-shadow: none; -webkit-overflow-scrolling: touch; position: relative; padding: 0; }
+div.highlighter-rouge, div.listingblock > div.content, figure.highlight { margin-top: 0; margin-bottom: 0.75rem; background-color: #f5f6fa; border-radius: 4px; box-shadow: none; -webkit-overflow-scrolling: touch; position: relative; padding: 0; }
 
 div.highlighter-rouge > button, div.listingblock > div.content > button, figure.highlight > button { width: 0.75rem; opacity: 0; position: absolute; top: 0; right: 0; padding: 0.75rem; border: none; background: none; color: #5c5962; box-sizing: content-box; }
 
@@ -881,7 +881,7 @@ figure.highlight pre, figure.highlight :not(pre) > code { overflow-x: auto; padd
 
 .highlight .table-wrapper { padding: 0.75rem 0; margin: 0; border: 0; box-shadow: none; }
 
-.highlight .table-wrapper td, .highlight .table-wrapper pre { min-width: 0; padding: 0; background-color: #fff; border: 0; }
+.highlight .table-wrapper td, .highlight .table-wrapper pre { min-width: 0; padding: 0; background-color: #f5f6fa; border: 0; }
 
 .highlight .table-wrapper td, .highlight .table-wrapper pre { font-size: 0.6875rem !important; }
 
@@ -897,9 +897,9 @@ figure.highlight pre, figure.highlight :not(pre) > code { overflow-x: auto; padd
 
 code.language-mermaid { padding: 0; background-color: inherit; border: 0; }
 
-.highlight, pre.highlight { background: #fff; color: #5c5962; }
+.highlight, pre.highlight { background: #f5f6fa; color: #5c5962; }
 
-.highlight pre { background: #fff; }
+.highlight pre { background: #f5f6fa; }
 
 .text-grey-dk-000 { color: #959396 !important; }
 
@@ -1729,6 +1729,8 @@ h6, .text-zeta { font-size: 26px !important; /* was 18/24 */ }
 
 img.logo_img { height: 60px; }
 
+.highlight { border: none !important; }
+
 /* Keep button inline with nav but move it to the right */
 #site-nav .theme-toggle-btn { float: right; /* push it to the right */ margin: 1em; /* space from the right edge */ display: inline-flex; align-items: center; justify-content: center; padding: 0.25em 0.75em; font-size: 0.9rem; font-weight: 500; line-height: 1; border-radius: 0.25em; border: none; cursor: pointer; color: #FFF; background-color: #8F5A3E; /* dark brown */ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.12); transition: background-color 0.25s ease, transform 0.15s ease; }
 
@@ -1748,9 +1750,9 @@ img.logo_img { height: 60px; }
 
 #diagram-2-graph { background-color: white; padding: 2rem; }
 
-#diagram-3-pcdm { width: 100%; }
+#diagram-3-pcdm { width: 100%; padding: 4rem; background-color: white; }
 
-#diagram-3-dadocm { width: 100%; padding: 4rem; margin-left: 3rem; }
+#diagram-3-dadocm { width: 100%; padding: 4rem; background-color: white; }
 
 .migration_diagrams img { max-width: none; height: 300px; }
 

@@ -39,6 +39,10 @@ img.logo_img {
   height: 60px;
 }
 
+.highlight {
+  border: none !important;
+}
+
 /* Keep button inline with nav but move it to the right */
 #site-nav .theme-toggle-btn {
   float: right;          /* push it to the right */

@@ -26,3 +26,16 @@ services:
     command: >
       bash -c "bundle install &&
                bundle exec jekyll build --config _config.yml --destination docs --verbose"
+
+  build-portable:
+    image: jekyll/jekyll:4
+    environment:
+      - TZ=America/New_York
+      - JEKYLL_ENV=production
+    volumes:
+      - .:/code
+    working_dir: /code
+    command: >
+      bash -c "bundle install &&
+               bundle exec ruby _scripts/build-portable.rb &&
+               ruby _scripts/make-portable.rb _portable_site"

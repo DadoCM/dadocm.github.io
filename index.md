@@ -352,13 +352,13 @@ A stand-in or representative content for the digital object for usability or for
 
 | Semantic Unit | Required or Optional | Examples |
 | :---- | :---- | :---- |
-| **Archival Component Relator** | Required | /repositories/2/archival\_objects/26805 21bee7e46eda3f8ae11f01f344c11f0a 5f4cc70b-44f0-4a99-a50d-96a0b8ce14e5 |
-| **Identifier**  | Required | 26805 21bee7e46eda3f8ae11f01f344c11f0a w3763s750 |
-| **Identifier label** | *Optional* | Link to content Online access |
-| **Action** | Required | embed link none |
-| **Type** | Required | image/jpeg application/pdf application/warc application/wacz application/ld+json; profile="http://iiif.io/api/presentation/3/context.json http://purl.org/dc/dcmitype/Collection http://purl.org/dc/dcmitype/StillImage http://purl.org/dc/dcmitype/Sound |
-| **Conditions Governing Access** | Required | https://vocab.example.org/access/open https://vocab.example.org/access/login https://vocab.example.org/access/closed http://iiif.io/api/auth/1/login |
-| **Representative Sample** | *Optional* | https://my.server.org/do/pk02cv45j/thumbnail.jpg |
+| **Archival Component Relator** | Required | • `/repositories/2/archival_objects/26805` <br/>• `21bee7e46eda3f8ae11f01f344c11f0a` <br/>• `5f4cc70b-44f0-4a99-a50d-96a0b8ce14e5` |
+| **Identifier**  | Required | • `26805` <br/>• `21bee7e46eda3f8ae11f01f344c11f0a` <br/>• `w3763s750` |
+| **Identifier label** | *Optional* | "Link to content Online access" |
+| **Action** | Required | • `embed` <br/>• `link` <br/>• `none` |
+| **Type** | Required | • `image/jpeg` <br/>• `application/pdf` <br/>• `application/warc` <br/>• `application/wacz` <br/>• `application/ld+json; profile="http://iiif.io/api/presentation/3/context.json` <br/>• `http://purl.org/dc/dcmitype/Collection` <br/>• `http://purl.org/dc/dcmitype/StillImage` <br/>• `http://purl.org/dc/dcmitype/Sound` |
+| **Conditions Governing Access** | Required | • `https://vocab.example.org/access/open` <br/>• `https://vocab.example.org/access/login` <br/>• `https://vocab.example.org/access/closed` <br/>• `http://iiif.io/api/auth/1/login` |
+| **Representative Sample** | *Optional* | • `https://www.example.org/do/pk02cv45j/thumbnail.jpg` |
 
 ## **Section 6: Legacy Concerns**
 
@@ -370,7 +370,7 @@ DadoCM represents a significant shift in practice and strict adherence may be as
 
 At the same time, archivists should make present-day decisions that change practice to support future alignment with DadoCM. Even when legacy systems or metadata cannot be fully restructured, repositories can take practical steps to preserve relationships between archival description and digital objects, such as ensuring archival component identifiers are retained within digital object records. New workflows, newly digitized materials, and significant system revisions should be implemented in ways that avoid creating additional technical debt and support long-term alignment with DadoCM.
 
-DadoCM should provide multiple advantages to both users and archivists as a much less resource-intensive way of providing access to digital materials using archival description. By reusing archival description as the primary source of descriptive metadata and limiting the information required to connect descriptions and digital objects, DadoCM reduces metadata duplication, simplifies workflows, and lowers long-term maintenance costs. The simplicity and standardization promoted by DadoCM should also enable more cost-effective development of repository and access tools. By establishing a common pattern for connecting archival descriptions and digital objects, institutions can share implementations, reduce customization, and focus resources on improving access and functionality rather than repeatedly solving the same integration problems.
+DadoCM should provide multiple advantages to both users and archivists as a much less resource-intensive way of providing access to digital materials using archival description. By reusing archival description as the primary source of descriptive metadata and limiting the information required to connect descriptions and digital objects, DadoCM reduces metadata duplication, simplifies workflows, and lowers long-term maintenance costs. The simplicity and standardization promoted by DadoCM should also enable more cost-effective development of repository and access tools. By establishing a common pattern for connecting archival description and digital objects, institutions can share implementations, reduce customization, and focus resources on improving access and functionality rather than repeatedly solving the same integration problems.
 
 ### Coverage: The Part of A Component Problem
 
@@ -580,7 +580,7 @@ Archivists should provide access to aggregations of digital materials at the poi
     <img src="img/ScreenshotColumbiaUniversityLibrariesMirador.png" alt="Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections."/>
   </a>
 
-  <figcaption>
+  <figcaption id="screenshot-columbia-mirador-caption">
     Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections.
   </figcaption>
 </figure>
@@ -613,7 +613,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 * Added language clarifying the Conditions Governing Access element can be inherited from archival components
   * Informed by community feedback action item 5 "Redefine or clarify the “conditions governing access” term and explain its inherited nature/individual nature compared to the finding aid"
 * Elevated [Legacy Concerns](#section-6-legacy-concerns) to Section 6
-  * Added a framing section to [Legacy Concerns](#legacy-concerns) to acknowledge that this significant shift in practice and will take time to adapt in most cases.
+  * Added a framing section to [Legacy Concerns](#section-6-legacy-concerns) to acknowledge that this significant shift in practice and will take time to adapt in most cases.
     * Informed by community feedback action item 1 "Better define how DadoCM affects (or doesn’t affect) legacy environments"
     * Informed by community feedback action item 7 "Better acknowledge upfront labor of switching to a new system and the increased labor for imaging and ingest"
   * Added clarifying language to [Existing Digital Object Descriptive Metadata](#existing-digital-object-level-descriptive-metadata) to explicity state how archivists can continue to use legacy digital object metadata to support discovery.
@@ -626,7 +626,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
   * Informed by community feedback action item 1, "Clarify how ‘digital object specific metadata’ does not contradict the finding aid."
 * Removed recommendation that archivists consider image compression more aggressively to mitigate data increases.
   * Informed by community feedback action item 2 as off-topic.
-* Added clarifying text in [IIIF Manifests as Digital Objects](#iiif-manifests-as-digital-objects)
+* Added clarifying text in [IIIF Manifests as Digital Objects](#6-iiif-manifests-as-digital-objects)
   * Informed by community feedback action item 9, "Guidance for “containerizing” series of digital files."
 * Rewrote [Focus on Access over Management and Preservation](#focus-on-access-over-management-and-preservation) section to clarify how DadoCM perceives digital object management and preservation information, and why scoping that out ensures it applies to both born-digital and digitized materials.
   * Added [Diagram 1](#diagram-1) showing different options for management and preservation of digital objects alongside DadoCM
@@ -637,6 +637,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
   * Informed by comment in the prerelease GoogleDoc
 * Diagrams now presented better with `<figure>` and `<figcaption>`
   * Informed by comments in the prerelease GoogleDoc
+* Cleaned up some of the [examples](http://localhost:4000/#appendix-examples)
 
 ## **Appendix: Examples**
 
@@ -644,7 +645,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 
 **Archival component relator:** https://findingaids.utc.edu/repositories/2/archival\_objects/231  
 **Identifier:** https://digital-collections.library.utc.edu/iiif/2/p16877coll7:0/manifest.json  
-**Type**: http://purl.org/dc/dcmitype/Collection  
+**Type**: application/ld+json; profile="http://iiif.io/api/presentation/3/context.json"  
 **Action:** embed  
 **Conditions governing access:**
 
@@ -663,7 +664,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 	  <accessrestrict type="machine">
 		 <p>https://www.wikidata.org/wiki/Q232932</p>
 	  </accessrestrict>
-	  <dao href="https://digital-collections.library.utc.edu/iiif/2/p16877coll7:0/manifest.json" role="http://purl.org/dc/dcmitype/Collection">
+	  <dao href="https://digital-collections.library.utc.edu/iiif/2/p16877coll7:0/manifest.json" role="application/ld+json; profile='http://iiif.io/api/presentation/3/context.json'">
 	   <daodesc>
 		<note type="action">embed</note>
 	   </daodesc>
@@ -676,11 +677,11 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 #### ArchivesSpace example encoding
 
 
-<a href="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" aria-label="Open the image at full size">
-  <img src="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
+<a href="img/ArchivesSpaceexampleencoding_embeddedIIIF.png" aria-label="Open the image at full size">
+  <img src="img/ArchivesSpaceexampleencoding_embeddedIIIF.png" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
 </a>
 
-***Limitations of this implementation:** Title and Identifier are required, leading to duplicate data. This also uses the XLink Show Attribute for the action. There is no good place to denote Type. Also, while ArchiveSpace does support structured Conditions Governing Access notes, it also allows Conditions Governing Access notes to be applied to digital object records and these cannot be structured which may cause confusion.*
+***Limitations of this implementation:** Title and Identifier are required, leading to duplicate data. The identifier `MS-002-02-01-01` in this example is not the DadoCM Identifier which may cause confusion. The DadoCM identifier in this example is the File URI field. This also shows the XLink Show Attribute used for the action field. There is no strong place to denote Type, as Digital Object Type is used to describe the form of the content, which is very different from the DadoCM type. Also, while ArchiveSpace does support structured Conditions Governing Access notes to components, the Conditions Governing Access notes it allows to be applied to digital object records cannot be structured which may also be a source of confusion.*
 
 ### Linked photograph album
 
@@ -725,8 +726,8 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 
 ### Restricted Born-digital Catalog and Promotional Artwork 
 
-**Archival component relator:** https://my.repository.edu/repositories/2/archival\_objects/3242  
-**Identifier:** https://my.repository.edu/iiif/3/mss299/3242/manifest.json  
+**Archival component relator:** https://www.example.org/repositories/2/archival\_objects/3242  
+**Identifier:** https://www.example.org/iiif/3/mss299/3242/manifest.json  
 **Type**: application/ld+json; profile="http://iiif.io/api/presentation/3/context.json"  
 **Action:** embed  
 **Conditions governing access:**
@@ -746,7 +747,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 	  <accessrestrict type="machine">
 		 <p>http://iiif.io/api/auth/1/login</p>
 	  </accessrestrict>
-	  <dao href="https://my.repository.edu/iiif/3/mss299/3242/manifest.json" role="application/ld+json; profile='http://iiif.io/api/presentation/3/context.json'">
+	  <dao href="https://www.example.org/iiif/3/mss299/3242/manifest.json" role="application/ld+json; profile='http://iiif.io/api/presentation/3/context.json'">
 	   <daodesc>
 		<note type="action">embed</note>
 	   </daodesc>
@@ -756,10 +757,14 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 
 #### ArchivesSpace example encoding
 
+<a href="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" aria-label="Open the image at full size">
+  <img src="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
+</a>
 
-![Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the "embed" action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest][image7]
+<a href="img/ArchivesSpaceexampleencoding_conditionsgoverningaccess.png" aria-label="Open the image at full size">
+  <img src="img/ArchivesSpaceexampleencoding_conditionsgoverningaccess.png" alt="An ArchivesSpace screenshot showing a structured Conditions Governing Access note. This uses the Label for the URI and uses the restriction end date and the text subnote for human readable description."/>
+</a>
 
-***![An ArchivesSpace screenshot showing a structured Conditions Governing Access note. This uses the Label for the URI and uses the restriction end date and the text subnote for human readable description.][image8]***
 
 	{
 		"jsonmodel_type": "note_multipart",
@@ -782,7 +787,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 		"publish": true
 	}
 
-***Limitations of this implementation:** Title and Identifier are required, leading to duplicate data. The title duplicates the title of the archival object and the identifier duplicates the file version File URI. This also sues the XLink Show Attribute for the action and the File Format Version for the type, both of which are insufficient. Also, while ArchiveSpace does support structured Conditions Governing Access notes, it allow allows Conditions Governing Access notes to be applied to digital object records and these cannot be structured which may cause confusion. The Label field also is the best place to store a machine-readable URI which may not be sufficient.*
+***Limitations of this implementation:** Title and Identifier are required, leading to duplicate data. The title duplicates the title of the archival object and the identifier duplicates the file version File URI. This also uses the XLink Show Attribute for the action and the File Format Version for the type, both of which are insufficient. Also, while ArchiveSpace does support structured Conditions Governing Access notes, it allow allows Conditions Governing Access notes to be applied to digital object records and these cannot be structured which may cause confusion. The Label field also is the best place to store a machine-readable URI which may not be sufficient.*
 
 ### EmpireADC spreadsheet implementation
 
@@ -798,14 +803,18 @@ This implementation includes a set of additional fields for each archival compon
 
 This implementation will support IIIF manifests linked with the “embed” action and “http://purl.org/dc/dcmitype/Collection” type, or links to digital content with the “link” action and dao\_title as the human-readable link text.
 
-![Screenshot of the example EmpireADC spreadsheet implementation of DadoCM.][image9]
+<a href="img/EmpireADCspreadsheet.png" aria-label="Open the image at full size">
+  <img src="img/EmpireADCspreadsheet.png" alt="Screenshot of the example EmpireADC spreadsheet implementation of DadoCM."/>
+</a>
 
 ### Embedded Web Archive Example
 
 An archival access system would be able to use this record and a hosted WARC or WACZ file to either [embed a web archives viewer using replayweb.page](https://replayweb.page/docs/embedding/), or link to a [wayback machine calendar page](https://wayback.archive-it.org/5613/*/http://50th.uci.edu/).
 
+A working example of an embeded WARC [can be seen here](https://archives.albany.edu/description/catalog/ua399aspace_eb6d96e30fef8b55d4a1e52268d70036).
+
 **Archival component relator:** https://oac.cdlib.org/findaid/ark:/13030/c82f7rqs/  
-**Identifier:** https://my.webarchiveshost.org/crawl/3603  
+**Identifier:** https://www.example.org/crawl/3603  
 **Type**: application/warc  
 **Action:** embed  
 **Conditions governing access:**
@@ -825,7 +834,7 @@ An archival access system would be able to use this record and a hosted WARC or 
 	  <accessrestrict type="machine">
 		 <p>https://www.wikidata.org/wiki/Q232932</p>
 	  </accessrestrict>
-	   <dao href="https://my.webarchiveshost.org/crawl/3603" role="application/warc">
+	   <dao href="https://www.example.org/crawl/3603" role="application/warc">
 		<daodesc>
 		 <note type="action">embed</note>
 		</daodesc>
@@ -835,7 +844,7 @@ An archival access system would be able to use this record and a hosted WARC or 
 
 ***Limitations of this encoding:** Descriptive metadata can only be rendered with a \<list type=”deflist”\>*
 
-### description\_harvester digital object model implementation
+### description harvester digital object model implementation
 
 [Description\_harvester](https://github.com/UAlbanyArchives/description_harvester) is a draft command line utility for managing archival data in ArcLight. It contains a minimal JSON data model for managing the data harvested from EAD or ArchivesSpace, ensuring that data is consistent before sending it to ArcLight for indexing.
 
@@ -853,11 +862,11 @@ Additionally, in this example we have legacy digital object level descriptive me
 		rights_statement = fields.StringField()
 		metadata = fields.ListField(dict)
 
-#### description\_harvester digital object model validation
+#### description harvester digital object model validation
 
 **identifier:** An accessible URL to a digital object or IIIF manifest  
 **label:** (optional) A short, human-readable name, useful for link actions.  
-**action**: Defines how the object is presented. Must be **"embed"**, **"link"**, or **"none"**.  
+**action**: Defines how the object is presented. Must be `embed`, `link`, or `none`.  
 **type:** A subset of DCMI Type URI:
 
 * Collection (for embedded IIIF manifests)  
@@ -867,7 +876,7 @@ Additionally, in this example we have legacy digital object level descriptive me
 * StillImage  
 * Text
 
-**access\_condition:** Must be **"open"** or **"limited"**.  
+**access\_condition:** Must be `open` or `limited`.  
 **thumbnail\_url**: (optional) must be a valid URL.  
 **rights\_statement:** (optional) must be a rightsstatements.org or Creative Commons URI.  
 **metadata**: A structured list of key-value pairs that allows digital object-level metadata fields to be displayed and/or faceted in ArcLight. Must be have a “dado\_” prefix of the following set:
@@ -895,7 +904,8 @@ Additionally, in this example we have legacy digital object level descriptive me
 	identifier: "e61a187694b4a4ee1941cc7c62328d6a"
 	action: "link"
 	type: "http://purl.org/dc/dcmitype/StillImage"
-	thumbnail_href: "https://media.archives.albany.edu/apap199/e61a187694b/thumbnail.jpg" access_condition: "open"
+	thumbnail_href: "https://media.archives.albany.edu/apap199/e61a187694b/thumbnail.jpg"
+	access_condition: "open"
 	metadata:
 		- dado_title: "University at Albany's Downtown campus"
 		- dado_legacy_id: "np193w49q"

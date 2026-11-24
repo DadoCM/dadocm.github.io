@@ -12,3 +12,8 @@ Available at [https://dadocm.github.io](https://dadocm.github.io)
 This site has a custom plugin for the table of contents that Github won't build itself, so it has to be built locally to `_site` before pushing to Github.
 
 `docker compose up build`
+
+### Build for copying to another web server
+
+Run `docker compose up build-portable` to build into `_portable_site`.
+

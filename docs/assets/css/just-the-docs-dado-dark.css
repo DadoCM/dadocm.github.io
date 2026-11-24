@@ -1977,6 +1977,8 @@ h6, .text-zeta { font-size: 26px !important; /* was 18/24 */ }
 
 img.logo_img { height: 60px; }
 
+.highlight { border: none !important; }
+
 /* Keep button inline with nav but move it to the right */
 #site-nav .theme-toggle-btn { float: right; /* push it to the right */ margin: 1em; /* space from the right edge */ display: inline-flex; align-items: center; justify-content: center; padding: 0.25em 0.75em; font-size: 0.9rem; font-weight: 500; line-height: 1; border-radius: 0.25em; border: none; cursor: pointer; color: #FFF; background-color: #8F5A3E; /* dark brown */ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.12); transition: background-color 0.25s ease, transform 0.15s ease; }
 
@@ -1996,9 +1998,9 @@ img.logo_img { height: 60px; }
 
 #diagram-2-graph { background-color: white; padding: 2rem; }
 
-#diagram-3-pcdm { width: 100%; }
+#diagram-3-pcdm { width: 100%; padding: 4rem; background-color: white; }
 
-#diagram-3-dadocm { width: 100%; padding: 4rem; margin-left: 3rem; }
+#diagram-3-dadocm { width: 100%; padding: 4rem; background-color: white; }
 
 .migration_diagrams img { max-width: none; height: 300px; }
 
