@@ -1,5 +1,12 @@
 {% raw %}
 <script>
+// Re-align to the URL anchor once images/fonts have loaded and layout has settled
+window.addEventListener("load", function() {
+  if (!location.hash) return;
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target) target.scrollIntoView();
+});
+
 document.addEventListener("DOMContentLoaded", function() {
   const navLinks = document.querySelectorAll(".site-nav a.nav-list-link");
   navLinks.forEach(link => {

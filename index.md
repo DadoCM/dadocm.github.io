@@ -67,7 +67,7 @@ Once archivists have stronger pathways for delivering digital objects through ar
   <a href="img/access_vs_management1.png"
      aria-label="Open the first image in Diagram 1 at full size">
     <img id="diagram-1-access_management1"
-         src="img/access_vs_management1.png"
+         src="img/access_vs_management1.png" width="262" height="322"
          alt=""
          class="img-fluid p-4">
   </a>
@@ -75,7 +75,7 @@ Once archivists have stronger pathways for delivering digital objects through ar
   <a href="img/access_vs_management2.png"
      aria-label="Open the second image in Diagram 1 at full size">
     <img id="diagram-1-access_management2"
-         src="img/access_vs_management2.png"
+         src="img/access_vs_management2.png" width="552" height="322"
          alt=""
          class="img-fluid p-4">
   </a>
@@ -111,7 +111,7 @@ Archival description has traditionally been presented in a hierarchical tree str
      rel="noopener noreferrer"
      aria-label="Open Diagram 1 at full size">
     <img id="diagram-2-graph"
-         src="img/graph_structure.png"
+         src="img/graph_structure.png" width="886" height="377"
          alt="Diagram showing archival hierarchy of Collection, Series, and Files. The Collection is also linked with a Creator which is also linked to another Collection, and a File (Excel spreadsheet) is linked to a Function (Bookkeeping) which is linked to another File (ledger) in a different Collection. This shows each collection hierarchy is interconnected into a graph.">
   </a>
 
@@ -145,7 +145,7 @@ Using the [Portland Common Data Model (PCDM)](https://pcdm.org/) for comparison.
   <a href="img/pcdm_diagram.png"
        aria-label="Open the first image in Diagram 3 at full size">
       <img id="diagram-3-pcdm"
-           src="img/pcdm_diagram.png"
+           src="img/pcdm_diagram.png" width="868" height="423"
            alt="PCDM diagram showing a Collection which has_many Objects, which has_many File. The collection and object carry access and descriptive metadata while the file carries access and technical metadata, as well as the bitstream."
            class="img-fluid p-4">
     </a>
@@ -153,7 +153,7 @@ Using the [Portland Common Data Model (PCDM)](https://pcdm.org/) for comparison.
   <a href="img/dadoCM1.png"
        aria-label="Open the second image in Diagram 3 at full size">
       <img id="diagram-3-dadocm"
-           src="img/dadoCM1.png"
+           src="img/dadoCM1.png" width="675" height="301"
            alt="DadoCM diagram in the same structure showing an Archival Component which has_many Archival Components, which is_represented_by a Digital Object. The collection and object carry access and descriptive metadata while the file carries access and technical metadata, as well as the bitstream."
            class="img-fluid p-4">
     </a>
@@ -178,7 +178,7 @@ ArchivesSpace implements this automatically for us if we ensure our digital obje
   <a href="img/diagram4.png"
        aria-label="Open the second image in Diagram 4 at full size">
       <img id="diagram-4-identifier"
-           src="img/diagram4.png"
+           src="img/diagram4.png" width="1077" height="497"
            alt="Diagram showing two tables that are linked via the term &quot;Unique ID&quot; which is linked by a line named &quot;Primary Key&quot;. The first table is titled &quot;Archival Component&quot; with terms &quot;Title, Date, Collection, Creator, Conditions Governing Access, Scope & Contents, and Unique ID&quot; listed. The second table is title &quot;Digital Object Record&quot; and has terms &quot;Unique ID, URI (location), Action, and Type&quot; listed. There is also a note reading &quot;*Other fields, such as access conditions, thumbnails, or additional metadata, can be used depending on local system requirements.&quot;"
            class="img-fluid p-4">
     </a>
@@ -218,7 +218,7 @@ While IIIF does not address every possible digital object use case, DadoCM is pr
 <figure>
   <a href="img/diagram5.png"
        aria-label="Open the second image in Diagram 5 at full size">
-      <img src="img/diagram5.png"
+      <img src="img/diagram5.png" width="542" height="676"
            alt="Diagram containing three boxes connected by a grey line. The first box is titled &quot;Archival Component&quot; and has two terms beneath it: &quot;archival_object_relator (Primary Key)&quot; and &quot;descriptive metadata&quot;. The grey line connecting the first box to the second is labeled &quot;One-to-one relationship&quot;. The second box is titled &quot;Digital Object Record&quot; and has five terms beneath it: &quot;archival_object_relator (Primary Key)&quot;, &quot;identifier (URI)&quot;, &quot;action (&quot;embed&quot;)&quot;, &quot;type (specifies it is a IIIF manifest)&quot;, and &quot;access_conditions&quot;. The second box is connected to the third box with a grey line labeled &quot;content samples; Deep zooming for large or high-resolution images; Digital object descriptive metadata; Rights statement; Representative text or captions for accessibility or indexing; Alternative renderings or representations in different formats; Multi-level navigation for file systems."
            class="img-fluid p-4">
     </a>
@@ -392,7 +392,7 @@ When evaluating these legacy relationships, archivists should consider whether t
   <a href="img/dadocm_diagram1.png"
        aria-label="Open Diagram 6 at full size">
       <img
-        src="img/dadocm_diagram1.png"
+        src="img/dadocm_diagram1.png" width="1001" height="417"
         alt="diagram showing one archival component with a 'has many' relationship that includes three different digital objects."
       >
     </a>
@@ -410,7 +410,7 @@ Two general migration pathways are available for the example in [Diagram 6](#dia
   <a href="img/dadocm_diagram2.png"
        aria-label="Open Diagram 7 at full size">
     <img
-      src="img/dadocm_diagram2.png"
+      src="img/dadocm_diagram2.png" width="1376" height="417"
       alt="diagram showing one archival component with a 'has many' relationship that includes three child archival components. Each of the child archival components has an 'is represented by' relationship with a single digital object."
     >
   </a>
@@ -431,7 +431,7 @@ Similarly, a born-digital archival component describing a project folder contain
   <a href="img/dadocm_diagram3.png"
        aria-label="Open Diagram 8 at full size">
     <img
-      src="img/dadocm_diagram3.png"
+      src="img/dadocm_diagram3.png" width="1001" height="417"
       alt="diagram showing one archival component which is an aggregate, with an 'is represented by' relationship to a single digital object which is also an aggregate."
     >
   </a>
@@ -577,7 +577,7 @@ Archivists should provide access to aggregations of digital materials at the poi
 
 <figure id="screenshot-columbia-mirador" aria-labelledby="screenshot-columbia-mirador-caption">
   <a href="img/ScreenshotColumbiaUniversityLibrariesMirador.png" aria-label="Open the image at full size">
-    <img src="img/ScreenshotColumbiaUniversityLibrariesMirador.png" alt="Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections."/>
+    <img src="img/ScreenshotColumbiaUniversityLibrariesMirador.png" width="1192" height="809" alt="Screenshot of Columbia University Libraries’ Mirador fork, which provides navigation for file directories using nested IIIF collections."/>
   </a>
 
   <figcaption id="screenshot-columbia-mirador-caption">
@@ -678,7 +678,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 
 
 <a href="img/ArchivesSpaceexampleencoding_embeddedIIIF.png" aria-label="Open the image at full size">
-  <img src="img/ArchivesSpaceexampleencoding_embeddedIIIF.png" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
+  <img src="img/ArchivesSpaceexampleencoding_embeddedIIIF.png" width="839" height="1179" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
 </a>
 
 ***Limitations of this implementation:** Title and Identifier are required, leading to duplicate data. The identifier `MS-002-02-01-01` in this example is not the DadoCM Identifier which may cause confusion. The DadoCM identifier in this example is the File URI field. This also shows the XLink Show Attribute used for the action field. There is no strong place to denote Type, as Digital Object Type is used to describe the form of the content, which is very different from the DadoCM type. Also, while ArchiveSpace does support structured Conditions Governing Access notes to components, the Conditions Governing Access notes it allows to be applied to digital object records cannot be structured which may also be a source of confusion.*
@@ -719,7 +719,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 #### ArchivesSpace Example
 
 <a href="img/ArchivesSpaceexampleencoding_linkedphotoalbum.png" aria-label="Open the image at full size">
-  <img src="img/ArchivesSpaceexampleencoding_linkedphotoalbum.png" alt="Screenshot from Archivesspace with a Conditions Governing Access note with content: &quot;open&quot;."/>
+  <img src="img/ArchivesSpaceexampleencoding_linkedphotoalbum.png" width="839" height="1231" alt="Screenshot from Archivesspace with a Conditions Governing Access note with content: &quot;open&quot;."/>
 </a>
 
 ***Limitations of this implementation:** Uses the ArchivesSpace XLink fields with values onLoad and new to denote “link”.*
@@ -758,11 +758,11 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
 #### ArchivesSpace example encoding
 
 <a href="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" aria-label="Open the image at full size">
-  <img src="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
+  <img src="img/ArchivesSpaceexampleencoding_catalogandpromoart.png" width="841" height="697" alt="Screenshot of ArchivesSpace Digital object record. Title is unnecessarily duplicated from the archival object record and the identifier and file version URI both are accessible URLs to the IIIF manifest. The File version XLink Show is used to denote the &quot;embed&quot; action and the File Format Version Field is used for the type, which is a MIME type for a IIIF manifest."/>
 </a>
 
 <a href="img/ArchivesSpaceexampleencoding_conditionsgoverningaccess.png" aria-label="Open the image at full size">
-  <img src="img/ArchivesSpaceexampleencoding_conditionsgoverningaccess.png" alt="An ArchivesSpace screenshot showing a structured Conditions Governing Access note. This uses the Label for the URI and uses the restriction end date and the text subnote for human readable description."/>
+  <img src="img/ArchivesSpaceexampleencoding_conditionsgoverningaccess.png" width="870" height="640" alt="An ArchivesSpace screenshot showing a structured Conditions Governing Access note. This uses the Label for the URI and uses the restriction end date and the text subnote for human readable description."/>
 </a>
 
 
@@ -804,7 +804,7 @@ This implementation includes a set of additional fields for each archival compon
 This implementation will support IIIF manifests linked with the “embed” action and “http://purl.org/dc/dcmitype/Collection” type, or links to digital content with the “link” action and dao\_title as the human-readable link text.
 
 <a href="img/EmpireADCspreadsheet.png" aria-label="Open the image at full size">
-  <img src="img/EmpireADCspreadsheet.png" alt="Screenshot of the example EmpireADC spreadsheet implementation of DadoCM."/>
+  <img src="img/EmpireADCspreadsheet.png" width="1583" height="546" alt="Screenshot of the example EmpireADC spreadsheet implementation of DadoCM."/>
 </a>
 
 ### Embedded Web Archive Example

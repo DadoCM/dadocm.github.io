@@ -1727,6 +1727,9 @@ h5, .text-epsilon { font-size: 20px !important; /* was 16/18 */ }
 
 h6, .text-zeta { font-size: 26px !important; /* was 18/24 */ }
 
+/* width/height attributes reserve space to prevent layout shift; keep aspect ratio when scaled */
+.main-content img { height: auto; }
+
 img.logo_img { height: 60px; }
 
 .highlight { border: none !important; }
@@ -1754,7 +1757,7 @@ img.logo_img { height: 60px; }
 
 #diagram-3-dadocm { width: 100%; padding: 4rem; background-color: white; }
 
-.migration_diagrams img { max-width: none; height: 300px; }
+.migration_diagrams img { max-width: none; width: auto; height: 300px; }
 
 .flex-column { flex-direction: column; }
 
