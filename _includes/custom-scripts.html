@@ -1,6 +1,6 @@
 {% raw %}
 <script>
-// Re-align to the URL anchor once images/fonts have loaded and layout has settled
+/* Re-align to the URL anchor once images/fonts have loaded and layout has settled. Block comment because the built HTML is compressed onto one line. */
 window.addEventListener("load", function() {
   if (!location.hash) return;
   const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
