@@ -608,9 +608,9 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
   * Informed by comments in the prerelease GoogleDoc
 * Added text to the Digital Object and Digital Object Record [Definitions](#section-2-definitions) to clarify how DadoCM handles both concepts.
   * Informed by comment in the prerelease GoogleDoc
-* Clarified the Type element may describe the delivery method more so than the content.
+* Clarified the [Type element](https://archives.albany.edu/static/dadocm/#type-required) may describe the delivery method more so than the content.
   * Informed by community feedback action item 5 "Redefine or clarify “type” term"
-* Added language clarifying the Conditions Governing Access element can be inherited from archival components
+* Added language clarifying the [Conditions Governing Access element](https://archives.albany.edu/static/dadocm/#conditions-governing-access-required) can be inherited from archival components
   * Informed by community feedback action item 5 "Redefine or clarify the “conditions governing access” term and explain its inherited nature/individual nature compared to the finding aid"
 * Elevated [Legacy Concerns](#section-6-legacy-concerns) to Section 6
   * Added a framing section to [Legacy Concerns](#section-6-legacy-concerns) to acknowledge that this significant shift in practice and will take time to adapt in most cases.
@@ -633,7 +633,7 @@ Changes from [pre-release version](https://docs.google.com/document/d/1-mATld2FJ
   * Informed by comments in the prerelease GoogleDoc and community feedback action item 6 "Better define how the 1 to 1 principle relates to the distinction between access and preservation copies"
 * Clarified that IIIF is a standard not a technology
   * Informed by comment in the prerelease GoogleDoc
-* Clarified language against orthogonality priciple to say don't maintain duplicate authoritative data sources.
+* Clarified language against [orthogonality priciple](https://archives.albany.edu/static/dadocm/#2-disambiguating-and-deduplicating-archival-components-and-digital-objects) to say don't maintain duplicate authoritative data sources.
   * Informed by comment in the prerelease GoogleDoc
 * Diagrams now presented better with `<figure>` and `<figcaption>`
   * Informed by comments in the prerelease GoogleDoc
